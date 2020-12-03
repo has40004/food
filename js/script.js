@@ -94,10 +94,39 @@ window.addEventListener('DOMContentLoaded', () => {
      }
         
      setClock('.timer', deadline);
-
      
+     // modol
 
+    const modalTrigger =  document.querySelectorAll ('[datd-modal]'),
+          modal = document.querySelector('.modal'),
+          modalClose = document.querySelector('[datd-close]');
 
-        
+    modalTrigger.forEach( item => {
+        item.addEventListener('click', () => {
+        modal.classList.add('show');
+        modal.classList.remove('hide');
+        document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    function closeModal (){
+        modal.classList.add('hide');
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
 
+    modalClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if ( e.target === modal){
+          closeModal();
+        }
+    });
+
+    // использование клавиаторы нажать на кнопку Esc 
+    document.addEventListener('keydown', (e) => {
+        if ( e.code === "Escape" && modal.classList.contains('show')){
+            closeModal();
+        }
+    });
 });
