@@ -1,3 +1,4 @@
+'use strict';
 window.addEventListener('DOMContentLoaded', () => {
 
     const tabs = document.querySelectorAll('.tabheader__item'),
@@ -141,7 +142,7 @@ window.addEventListener('DOMContentLoaded', () => {
             window.removeEventListener('scroll',showModalByScoll);
         }
     }
-    
+
     window.addEventListener('scroll',showModalByScoll);
 
 });
