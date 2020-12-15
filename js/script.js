@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
  
      //timer
 
-     const deadline = '2020-12-15';
+     const deadline = '2020-12-31';
 
      function gitTimeRemaining (endtime){
 
@@ -301,19 +301,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     }
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => response.json())
+        .then(json => console.log(json));
 
-    // function showThanks (){
-    //     forms.forEach (item => {
-    //         item.innerHTML = '';
-    //         const div = document.createElement('div');
-    //         div.textContent = 'Мы свяжемся с вами как можно быстрее';
-    //         div.classList.add('modal__title');
-    //         item.appendChild(div);
-    //         setTimeout(() => {
-    //             div.remove();
-               
-    //         },2000);
-            
-    //     });
-    // }
 });
+
+
