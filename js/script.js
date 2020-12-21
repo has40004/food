@@ -385,6 +385,35 @@ window.addEventListener('DOMContentLoaded', () => {
    function transiltion (){
         slidesField.style.transform = ` translateX(-${offset}px)`;
    }
+   
+//timer
+   function timers () {
+        if ( offset == +width.slice(0, width.length - 2) * (slides.length -1)){
+            offset= 0;
+            
+        }else {
+            offset += +width.slice(0, width.length -2);
+            
+        }
+
+        transiltion ();
+
+        if ( slideIndex == slides.length){
+            slideIndex = 1;
+        }else {
+            slideIndex++;
+        }
+
+        if ( slides.length < 10){
+            current.textContent = ` 0${slideIndex}`;
+        } else {
+            current.textContent = slideIndex;
+        }
+
+        dotes ();
+   }
+
+   setInterval(timers, 2000);
 
 
     
@@ -452,6 +481,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
         });
     });
+
+
 
 
    
