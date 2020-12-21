@@ -385,14 +385,18 @@ window.addEventListener('DOMContentLoaded', () => {
    function transiltion (){
         slidesField.style.transform = ` translateX(-${offset}px)`;
    }
+
+   function deletNotDigites ( str) {
+       return +str.replace(/\D/g, '');
+   }
    
 //timer
    function timers () {
-        if ( offset == +width.slice(0, width.length - 2) * (slides.length -1)){
+        if ( offset == deletNotDigites ( width) * (slides.length -1)){
             offset= 0;
             
         }else {
-            offset += +width.slice(0, width.length -2);
+            offset += deletNotDigites ( width);
             
         }
 
@@ -413,18 +417,14 @@ window.addEventListener('DOMContentLoaded', () => {
         dotes ();
    }
 
-   setInterval(timers, 2000);
+   setInterval(timers, 5000);
 
-
-    
-
-    
     next.addEventListener('click', () => {
-        if ( offset == +width.slice(0, width.length - 2) * (slides.length -1)){
+        if ( offset == deletNotDigites ( width) * (slides.length -1)){
             offset= 0;
             
         }else {
-            offset += +width.slice(0, width.length -2);
+            offset += deletNotDigites ( width);
             console.log(offset);
         }
 
@@ -449,9 +449,9 @@ window.addEventListener('DOMContentLoaded', () => {
      prev.addEventListener('click', () => {
 
         if ( offset == 0){
-            offset = +width.slice(0, width.length -2) * (slides.length - 1);
+            offset = deletNotDigites ( width)* (slides.length - 1);
         }else {
-            offset -= +width.slice(0, width.length -2);
+            offset -= deletNotDigites ( width);
             
         }
         
@@ -472,7 +472,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const slideTo = e.target.getAttribute('data-slide-to');
             slideIndex = slideTo;
 
-            offset = +width.slice(0, width.length -2) * (slideTo- 1);
+            offset = deletNotDigites ( width) * (slideTo- 1);
 
             transiltion ();
             slideTotalCurrent (slideTo);
@@ -481,9 +481,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
         });
     });
-
-
-
 
    
 });
