@@ -92,7 +92,7 @@
     font-size: 25px;
 }
 .menu {
-    width: 350px;
+    max-width: 350px;
 }
 
 .order {
