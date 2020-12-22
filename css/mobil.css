@@ -81,7 +81,99 @@
       left: 15%;
 }
 
+.offer__advantages {
+    width: 330px;
+    margin-top: 50px;
+}
+.offer__slider {
+    width: 350px;
+}
+.offer__slider #current {
+    font-size: 25px;
+}
+.menu {
+    width: 350px;
+}
 
+.order {
+    width: 350px;
+}
+.order__form {
+    flex-direction: column;
+    height: 214px;
+}
+.promotion {
+    width: 350px;
+}
+
+.promotion .container {
+    display: block;
+}
+.promotion__text {
+    width: 100%;
+}
+.promotion__descr {
+    text-align: center;
+}
+
+.promotion__timer {
+     width: 100%; 
+}
+
+.promotion__timer .timer {
+    padding-left: 15px;
+}
+
+.promotion__timer .timer__block {
+    width: 70px;
+    height: 86px;
+}
+
+.promotion__timer .timer__block span {
+    margin-top: 15px;
+    font-size: 28px;
+}
+
+.promotion__timer .timer__block span {
+    margin-top: 15px;
+    font-size: 28px;
+}
+
+.promotion__timer .title {
+    padding: 20px;
+}
+
+.footer {
+    width: 350px;
+}
+
+.footer .container {
+    flex-direction: column;
+    align-items: center;
+}
+
+.social {
+    text-align: center;
+}
+
+.footer .call {
+    text-align: center;
+}
+
+.modal__dialog {
+    max-width: 320px;
+}
+.modal__content {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+}
+.modal__title {
+    font-size: 17px;
+}
+.modal__input {
+    font-size: 16px;
+}
 
 
 
