@@ -227,5 +227,8 @@
 .calculating__result span {
     font-size: 30px;
 }
+.calculating__divider {
+    width: 350px;
+}
 
 }
