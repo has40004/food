@@ -85,6 +85,11 @@
     width: 330px;
     margin-top: 50px;
 }
+.offer__advantages-text {
+    font-size: 14px;
+    text-align: center;
+}
+
 .offer__slider {
     width: 350px;
 }
