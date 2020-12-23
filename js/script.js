@@ -246,7 +246,7 @@ window.addEventListener('DOMContentLoaded', () => {
               thanksModal.innerHTML = `
                 <div class= "modal__content">
                 <div data-close class="modal__close">&times;</div>
-                <div  ><img src="img/form/IMG_7558.JPG" alt=""></div>
+                <div  ><img src="img/form/IMG_5412.jpg" alt=""></div>
             
                 </div> 
 
