@@ -238,14 +238,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
     function getNameOrPhon () {
        phone.addEventListener('input', () => {
-            if ( phone.value.match(/\D/g)){
+            if ( phone.value.match(/\D/g) ){
                 phone.style.border = ' 1px solid red';
                 phone.style.color = 'red';
                 alert('добрый день Хешам! как жизнь молодая');
             } 
        });
        names.addEventListener('input', () => {
-            if ( !names.value.match(/\D/g)){
+            if ( !names.value.match(/\D/g) || names.value.match(/\W/g)){
                 names.style.border = ' 1px solid red';
                 names.style.color = 'red';
                 alert('добрый день Хешам! как жизнь молодая');
