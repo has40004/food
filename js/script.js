@@ -232,22 +232,28 @@ window.addEventListener('DOMContentLoaded', () => {
         };
 
         // функция проверки данных форм
+    const phone = document.querySelector('#telephon'),
+              names = document.querySelector('#names');
+
 
     function getNameOrPhon () {
-        const phone = document.querySelector('#telephon'),
-              names = document.querySelector('#names');
-              console.log(names);
-              console.log(phone);
-        if ( !phone.value.match(/\W/g)){
-            phone.style.border = ' 1px solid red';
-            phone.style.color = 'red';
-            console.log(phone);
-        }  if ( !names.value.match(/\D/g)){
-            names.style.border = ' 1px solid red';
-            names.style.color = 'red';
-            console.log(names);
-        } 
+       phone.addEventListener('input', () => {
+            if ( phone.value.match(/\D/g)){
+                phone.style.border = ' 1px solid red';
+                phone.style.color = 'red';
+                alert('добрый день Хешам! как жизнь молодая');
+            } 
+       });
+       names.addEventListener('input', () => {
+            if ( !names.value.match(/\D/g)){
+                names.style.border = ' 1px solid red';
+                names.style.color = 'red';
+                alert('добрый день Хешам! как жизнь молодая');
+            } 
+       });
+       
     }
+    getNameOrPhon ();
 
 
     function bindPostData(form){
@@ -261,8 +267,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 display: block;
                 margin : 0 auto ;
             `;
-            getNameOrPhon ();
-            
+
             form.insertAdjacentElement('afterend', statusMessage);
 
             const formData = new FormData(form);
