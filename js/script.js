@@ -218,6 +218,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     forms.forEach(item => {
+        
             bindPostData(item);
         });
     
@@ -230,8 +231,29 @@ window.addEventListener('DOMContentLoaded', () => {
             return await res.json();
         };
 
+        // функция проверки данных форм
+
+    function getNameOrPhon () {
+        const phone = document.querySelector('#telephon'),
+              names = document.querySelector('#names');
+              console.log(names);
+              console.log(phone);
+        if ( !phone.value.match(/\W/g)){
+            phone.style.border = ' 1px solid red';
+            phone.style.color = 'red';
+            console.log(phone);
+        }  if ( !names.value.match(/\D/g)){
+            names.style.border = ' 1px solid red';
+            names.style.color = 'red';
+            console.log(names);
+        } 
+    }
+
+
     function bindPostData(form){
+        
         form.addEventListener('submit', (e) => {
+            
             e.preventDefault();
             let statusMessage = document.createElement('img');
             statusMessage.src = message.loading;
@@ -239,6 +261,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 display: block;
                 margin : 0 auto ;
             `;
+            getNameOrPhon ();
+            
             form.insertAdjacentElement('afterend', statusMessage);
 
             const formData = new FormData(form);
