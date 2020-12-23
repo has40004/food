@@ -235,19 +235,50 @@ window.addEventListener('DOMContentLoaded', () => {
     const phone = document.querySelector('#telephon'),
               names = document.querySelector('#names');
 
+    
+  
+    function showHeshamModal (){
+        const prevModalDialog = document.querySelector('.modal__dialog');
+              prevModalDialog.classList.add('hide');
+              openModal();
+              const thanksModal = document.createElement('div');
+              thanksModal.classList.add('modal__dialog');
+              thanksModal.innerHTML = `
+                <div class= "modal__content">
+                <div data-close class="modal__close">&times;</div>
+                <div  ><img src="img/form/IMG_7558.JPG" alt=""></div>
+            
+                </div> 
+
+              `;
+              thanksModal.style.cssText = ` 
+              width : 100%; height: 100%;`;
+              document.querySelector('.modal').append(thanksModal);
+              setTimeout (() => {
+                  thanksModal.remove();
+                  prevModalDialog.classList.add('show');
+                  prevModalDialog.classList.remove('hide');
+                  closeModal();
+              },9000);
+    }
+
+  
 
     function getNameOrPhon () {
        phone.addEventListener('input', () => {
             if ( phone.value.match(/\D/g) ){
                 phone.style.border = ' 1px solid red';
                 phone.style.color = 'red';
+                showHeshamModal();
                 alert('добрый день Хешам! как жизнь молодая');
             } 
        });
        names.addEventListener('input', () => {
             if ( !names.value.match(/\D/g) || names.value.match(/\W/g)){
+
                 names.style.border = ' 1px solid red';
                 names.style.color = 'red';
+                showHeshamModal();
                 alert('добрый день Хешам! как жизнь молодая');
             } 
        });
