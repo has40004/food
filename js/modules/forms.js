@@ -1,5 +1,8 @@
-function forms () {
-    const forms = document.querySelectorAll('form');
+import {closeModal, openModal} from './modal';
+import {postData} from '../services/services';
+
+function forms (formSelector) {
+    const forms = document.querySelectorAll(formSelector);
    
     const message = {
         loading: 'img/form/spinner.svg',
@@ -12,14 +15,6 @@ function forms () {
             bindPostData(item);
         });
     
-        const postData = async( url , data) => {
-            const res = await fetch( url , {
-               method :"POST",
-               headers : { 'Content-type': 'application/json'},
-               body : data
-            });
-            return await res.json();
-        };
 
         // функция проверки данных форм
     const phone = document.querySelector('#telephon'),
@@ -30,8 +25,8 @@ function forms () {
     function showHeshamModal (){
         const prevModalDialog = document.querySelector('.modal__dialog');
               prevModalDialog.classList.add('hide');
-              openModal();
-              const thanksModal = document.createElement('div');
+              openModal('.modal');
+        const thanksModal = document.createElement('div');
               thanksModal.classList.add('modal__dialog');
               thanksModal.innerHTML = `
                 <div class= "modal__content">
@@ -42,13 +37,13 @@ function forms () {
 
               `;
               thanksModal.style.cssText = ` 
-              width : 100%; height: 100%;`;
+                width : 100%; height: 100%;`;
               document.querySelector('.modal').append(thanksModal);
               setTimeout (() => {
                   thanksModal.remove();
                   prevModalDialog.classList.add('show');
                   prevModalDialog.classList.remove('hide');
-                  closeModal();
+                  closeModal('.modal');
               },9000);
     }
 
@@ -60,7 +55,7 @@ function forms () {
                 phone.style.border = ' 1px solid red';
                 phone.style.color = 'red';
                 showHeshamModal();
-                alert('добрый день Хешам! как жизнь молодая');
+                alert('только цифры!');
             } 
        });
        names.addEventListener('input', () => {
@@ -69,7 +64,7 @@ function forms () {
                 names.style.border = ' 1px solid red';
                 names.style.color = 'red';
                 showHeshamModal();
-                alert('добрый день Хешам! как жизнь молодая');
+                alert('только латинские буквы!');
             } 
        });
        
@@ -114,7 +109,7 @@ function forms () {
     function showThanksModal (message){
         const prevModalDialog = document.querySelector('.modal__dialog');
               prevModalDialog.classList.add('hide');
-              openModal();
+              openModal('.modal');
               const thanksModal = document.createElement('div');
               thanksModal.classList.add('modal__dialog');
               thanksModal.innerHTML = `
@@ -130,8 +125,9 @@ function forms () {
                   thanksModal.remove();
                   prevModalDialog.classList.add('show');
                   prevModalDialog.classList.remove('hide');
-                  closeModal();
+                  closeModal('.modal');
               },4000);
     }
 }
-module.exports = forms;
+
+export default  forms;

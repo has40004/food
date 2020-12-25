@@ -1,23 +1,23 @@
-function slider (){
-    const slides = document.querySelectorAll('.offer__slide'),
-    prev = document.querySelector('.offer__slider-prev'),
-    slider = document.querySelector('.offer__slider'),
-    next = document.querySelector('.offer__slider-next'),
-    total = document.querySelector('#total'),
-    current = document.querySelector('#current'),
-    slidesWrapper = document.querySelector('.offer__slider-wrapper'),
-    slidesField = document.querySelector('.offer__slider-inner'),
-    width = window.getComputedStyle(slidesWrapper).width;
+function slider ({ container, slide, nextArrow, prevArrow, totalCounter, currentCounter, wrapper, field}){
+    const slides = document.querySelectorAll(slide),
+          prev = document.querySelector(prevArrow),
+          slider = document.querySelector(container),
+          next = document.querySelector(nextArrow),
+          total = document.querySelector(totalCounter),
+          current = document.querySelector(currentCounter),
+          slidesWrapper = document.querySelector(wrapper),
+          slidesField = document.querySelector(field),
+          width = window.getComputedStyle(slidesWrapper).width;
 
     let slideIndex = 1;
     let offset = 0;
-    if (slides.length < 10){
-    total.textContent = ` 0${slides.length}`;
-    current.textContent = ` 0${slideIndex}`;
-    } else {
-    total.textContent = slides.length;
-    current.textContent = slideIndex;
-    }
+        if (slides.length < 10){
+            total.textContent = ` 0${slides.length}`;
+            current.textContent = ` 0${slideIndex}`;
+        } else {
+            total.textContent = slides.length;
+            current.textContent = slideIndex;
+        }
 
     slidesField.style.width = 100 * slides.length + '%';
     slidesField.style.display = 'flex';
@@ -38,18 +38,18 @@ function slider (){
     indicators.classList.add('carousel-indicators');
 
     indicators.style.cssText = `
-    position: absolute;
-    right: 0;
-    bottom: 5px;
-    left: 0;
-    z-index: 15;
-    display: flex;
-    justify-content: center;
-    margin-right: 15%;
-    margin-left: 15%;
-    list-style: none;
+        position: absolute;
+        right: 0;
+        bottom: 5px;
+        left: 0;
+        z-index: 15;
+        display: flex;
+        justify-content: center;
+        margin-right: 15%;
+        margin-left: 15%;
+        list-style: none;
 
-    `;
+        `;
     slider.append(indicators);
 
     for( let i = 0; i < slides.length; i++){
@@ -131,7 +131,7 @@ function slider (){
         dotes ();
     }
 
-    setInterval(timers, 5000);
+    setInterval(timers, 3000);
 
     next.addEventListener('click', () => {
         if ( offset == deletNotDigites ( width) * (slides.length -1)){
@@ -197,4 +197,4 @@ function slider (){
     });
 }
 
-module.exports = slider;
+export default  slider;

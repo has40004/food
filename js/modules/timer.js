@@ -1,7 +1,6 @@
-function timer (){
-      //timer
 
-    const deadline = '2020-12-31';
+function timer (id, deadline){
+      //timer
 
     function gitTimeRemaining (endtime){
 
@@ -42,10 +41,10 @@ function timer (){
         function updetClock (){
 
             const t = gitTimeRemaining(deadline);
-            days.innerHTML =  getZero(t.days);
-            hours.innerHTML = getZero(t.hours );
-            minutes.innerHTML = getZero(t.minutes);
-            seconds.innerHTML = getZero(t.seconds);
+                days.innerHTML =  getZero(t.days);
+                hours.innerHTML = getZero(t.hours );
+                minutes.innerHTML = getZero(t.minutes);
+                seconds.innerHTML = getZero(t.seconds);
 
             if (t.total <= 0){
                 clearInterval(timeInterval);
@@ -54,7 +53,7 @@ function timer (){
         
     }
         
-    setClock('.timer', deadline);
+    setClock(id, deadline);
 }
 
-module.exports = timer;
+export default  timer;
