@@ -27,6 +27,6 @@ window.addEventListener('DOMContentLoaded', () => {
         field : '.offer__slider-inner'
 
     });
-    timer('.timer', '2021-01-30');
+    timer('.timer', '2021-12-30');
         
 });
