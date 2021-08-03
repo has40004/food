@@ -806,7 +806,7 @@ window.addEventListener('DOMContentLoaded', () => {
         field : '.offer__slider-inner'
 
     });
-    (0,_modules_timer__WEBPACK_IMPORTED_MODULE_6__.default)('.timer', '2021-01-30');
+    (0,_modules_timer__WEBPACK_IMPORTED_MODULE_6__.default)('.timer', '2022-01-30');
         
 });
 
